@@ -1,4 +1,4 @@
-<div style="height: 80vh;z-index: -1;">
+<div *ngIf="bannerURL" style="height: 80vh;z-index: -1;">
   <!--Carousel Wrapper-->
   <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
     <!--Indicators-->
@@ -13,13 +13,13 @@
         <!--Mask color-->
         <div class="view jarallax" style="height: 80vh;">
           <img class="jarallax-img"
-               src="https://images.squarespace-cdn.com/content/v1/5ae11809f93fd4f365d1d2c3/1561346511281-Y03EPI9AH7Y1YAEEKPHE/ke17ZwdGBToddI8pDm48kDxhhhwBddJ9fDxYAvV-2zp7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0ouw-8l5B_J38LMU7OZFvYfl9aEukiZdUWz0NUuu50q7UB1aqLpIyc_jzEDviFCoAA/Toy+Story+4.jpg?format=2500w" alt="">
+               [src]="bannerURL" alt="">
           <div class="mask rgba-blue-slight"></div>
         </div>
       </div>
       <div class="carousel-item active">
         <div class="view jarallax" style="height: 80vh;">
-          <img class="jarallax-img" src="https://wallpaperaccess.com/full/331666.jpg" alt="">
+          <img class="jarallax-img" [src]="bannerURL" alt="">
           <div class="mask rgba-blue-slight"></div>
         </div>
       </div>
