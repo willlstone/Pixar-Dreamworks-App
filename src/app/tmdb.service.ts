@@ -16,4 +16,8 @@ export class TmdbService {
     return this.http.get(this.tmdbURL + '3/discover/movie?with_companies=3&page=1&include' +
       '_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&api_key=' + this.apiKEY);
   }
+  getListByUrl(url) {
+    console.log('api request: ' + this.apiKEY);
+    return this.http.get(url + this.apiKEY);
+  }
 }
