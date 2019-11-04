@@ -1,12 +1,13 @@
-<div style="height:1000px;background-color:#fff;font-size:36px; margin-top: 5%">
+<div style="height:1000px;background-color:#fff;font-size:36px; margin-top: 5%; margin-left: 5vh; margin-right: 5vh">
   <div class="row">
-    <div class="col-md-4">
+
+    <div *ngFor="let movie of moviesList" class="col-md-3" style="padding-bottom: 5vh;">
       <!--Card-->
       <mdb-card cascade="true" wider="true">
 
         <!--Card image-->
         <div class="view view-cascade overlay waves-light" mdbWavesEffect>
-          <mdb-card-img src="http://image.tmdb.org/t/p/original/9cJETuLMc6R0bTWRA5i7ctY9bxk.jpg"></mdb-card-img>
+          <mdb-card-img src="{{'http://image.tmdb.org/t/p/original' + movie.poster_path}}"></mdb-card-img>
           <a>
             <div class="mask rgba-white-slight"></div>
           </a>
@@ -17,39 +18,11 @@
       <!--/.Card-->
     </div>
 
-    <div class="col-md-4">
-      <!--Card-->
-      <mdb-card cascade="true" narrower="true">
 
-        <!--Card image-->
-        <div class="view view-cascade overlay waves-light" mdbWavesEffect>
-          <mdb-card-img src="http://image.tmdb.org/t/p/original/syPWyeeqzTQIxjIUaIFI7d0TyEY.jpg"></mdb-card-img>
-          <a>
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
-        <!--/Card image-->
 
-      </mdb-card>
-      <!--/.Card-->
-    </div>
 
-    <div class="col-md-4">
-      <!--Card-->
-      <mdb-card cascade="true">
-
-        <!--Card image-->
-        <div class="view view-cascade overlay waves-light" mdbWavesEffect>
-          <mdb-card-img src="http://image.tmdb.org/t/p/original/w9kR8qbmQ01HwnvK4alvnQ2ca0L.jpg"></mdb-card-img>
-          <a>
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
-        <!--/Card image-->
-
-      </mdb-card>
-      <!--/.Card-->
-    </div>
   </div>
+
+  <button (click)="printMovies()"></button>
 
 </div>
