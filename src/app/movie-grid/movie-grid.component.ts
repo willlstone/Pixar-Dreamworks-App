@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TmdbService} from '../tmdb.service';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-movie-grid',
@@ -14,28 +13,10 @@ export class MovieGridComponent implements OnInit {
   constructor(
     private tmdbService: TmdbService,
     private route: ActivatedRoute,
-    private location: Location
   ) { }
 
   ngOnInit() {
-    // this.tmdbService.getMovies();
     this.getStudioMovieList();
-    // console.log(this.tmdbService.getMovieListByName('shrek')
-    //   .subscribe(
-    //     (response) => {
-    //       /* tslint:disable:no-string-literal */
-    //       this.moviesList = response['results'];
-    //     }
-    //   ));
-  }
-  getList(): void {
-    /* tslint:disable:no-string-literal */
-    this.tmdbService.getList()
-      .subscribe(
-        (response) => {
-          this.moviesList = response['results'];
-        }
-      );
   }
   getStudioMovieList(): void {
     /* tslint:disable:no-string-literal */
@@ -46,9 +27,6 @@ export class MovieGridComponent implements OnInit {
           this.moviesList = response['results'];
         }
       );
-  }
-  printMovies(): void {
-    console.log(this.studio);
   }
 
 }

@@ -28,4 +28,7 @@ export class TmdbService {
   getVideosById(id) {
     return this.http.get(this.tmdbURL + '3/movie/' + id + '/videos?api_key=' + this.apiKEY + '&language=en-US');
   }
+  getImagesById(id) {
+    return this.http.get(this.tmdbURL + '3/movie/' + id + '/images?api_key=' + this.apiKEY);
+  }
 }
