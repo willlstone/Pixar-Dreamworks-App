@@ -9,6 +9,7 @@ import { MovieGridComponent } from './movie-grid/movie-grid.component';
 import { GridBannerComponent } from './grid-banner/grid-banner.component';
 import { AppRoutingModule } from './app-routing.module';
 import { StudioComponent } from './studio/studio.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { SearchComponent } from './search/search.component';
 
 @NgModule({
@@ -17,6 +18,8 @@ import { SearchComponent } from './search/search.component';
     NavigationComponent,
     MovieGridComponent,
     GridBannerComponent,
+    StudioComponent,
+    MovieDetailComponent
     StudioComponent,
     SearchComponent
   ],
