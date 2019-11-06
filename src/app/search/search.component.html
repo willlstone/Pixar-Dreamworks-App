@@ -1,11 +1,74 @@
-<div id="search-component">
-  <h4><label for="search-box">Search Movie</label></h4>
-  <input #searchBox id="search-box" (input)="getMovieListByName(searchBox.value)">
-  <ul class="search-result">
-    <li *ngFor="let movie of movies">
-      <a routerLink="/movie/{{movie.id}}">
-        {{movie.original_title}}
-      </a>
-    </li>
-  </ul>
-</div>
+<!--<div id="search-component">-->
+<!--  <input #searchBox id="search-box" (input)="getMovieListByName(searchBox.value)">-->
+<!--  <ul class="search-result">-->
+<!--    <li *ngFor="let movie of movies">-->
+<!--      <a routerLink="/movie/{{movie.id}}">-->
+<!--        {{movie.original_title}}-->
+<!--      </a>-->
+<!--    </li>-->
+<!--  </ul>-->
+<!--</div>-->
+
+
+<!-- Search form -->
+<form id="search-component" class="form-inline waves-light" mdbWavesEffect (submit)="submitForm()" >
+  <div class="md-form my-0">
+    <input class="form-control mr-sm-2" type="text" placeholder="Search"
+    #searchBox id="search-box" (input)="getMovieListByName(searchBox.value)" >
+<!--    <ul class="autocomplete">-->
+<!--      <li class="autocomplete-items" *ngFor="let movie of movies"-->
+<!--          style="background-color: white;right: 7vh;">-->
+<!--        <a routerLink="/movie/{{movie.id}}">-->
+<!--          {{movie.original_title}}-->
+<!--        </a>-->
+<!--      </li>-->
+<!--    </ul>-->
+  </div>
+</form>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  /*the container must be positioned relative:*/
+  .autocomplete {
+    position: relative;
+    display: inline-block;
+    list-style-type: none;
+  }
+
+  input[type=submit] {
+    cursor: pointer;
+  }
+
+  .autocomplete-items {
+    position: relative;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: -15%;
+    right: 0;
+  }
+
+  .autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+  }
+
+  /*when hovering an item:*/
+  .autocomplete-items div:hover {
+    background-color: blue;
+  }
+
+  /*when navigating through the items using the arrow keys:*/
+  .autocomplete-active {
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+  }
+</style>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TmdbService} from '../tmdb.service';
 import { ActivatedRoute } from '@angular/router';
+import { Input} from '@angular/core';
 
 @Component({
   selector: 'app-movie-grid',
@@ -8,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./movie-grid.component.scss']
 })
 export class MovieGridComponent implements OnInit {
+  @Input() queryString;
   moviesList = [];
   studio = this.route.snapshot.paramMap.get('id');
   constructor(
