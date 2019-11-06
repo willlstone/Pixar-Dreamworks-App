@@ -19,7 +19,7 @@ import { SearchComponent } from './search/search.component';
     MovieGridComponent,
     GridBannerComponent,
     StudioComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
     StudioComponent,
     SearchComponent
   ],
