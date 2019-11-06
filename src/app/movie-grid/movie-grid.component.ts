@@ -20,6 +20,13 @@ export class MovieGridComponent implements OnInit {
   ngOnInit() {
     // this.tmdbService.getMovies();
     this.getStudioMovieList();
+    // console.log(this.tmdbService.getMovieListByName('shrek')
+    //   .subscribe(
+    //     (response) => {
+    //       /* tslint:disable:no-string-literal */
+    //       this.moviesList = response['results'];
+    //     }
+    //   ));
   }
   getList(): void {
     /* tslint:disable:no-string-literal */
