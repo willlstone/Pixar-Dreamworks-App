@@ -11,6 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { StudioComponent } from './studio/studio.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { SearchComponent } from './search/search.component';
+import { CastComponent } from './cast/cast.component';
+import { TrailerComponent } from './trailer/trailer.component';
+import { SimilarComponent } from './similar/similar.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { SearchComponent } from './search/search.component';
     StudioComponent,
     MovieDetailComponent,
     StudioComponent,
-    SearchComponent
+    SearchComponent,
+    CastComponent,
+    TrailerComponent,
+    SimilarComponent
   ],
   imports: [
     BrowserModule,
