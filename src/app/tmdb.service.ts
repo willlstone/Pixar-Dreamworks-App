@@ -17,7 +17,15 @@ export class TmdbService {
       '_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&api_key=' + this.apiKEY);
   }
   getListByUrl(url) {
-    console.log('api request: ' + this.apiKEY);
     return this.http.get(url + this.apiKEY);
+  }
+  getMovieListByName(movieName) {
+    return this.http.get(this.tmdbURL + '3/search/movie?api_key=' + this.apiKEY + '&query=' + movieName);
+  }
+  getMovieById(id) {
+    return this.http.get(this.tmdbURL + '3/movie/' + id + '?api_key=' + this.apiKEY + '&language=en-US');
+  }
+  getVideosById(id) {
+    return this.http.get(this.tmdbURL + '3/movie/' + id + '/videos?api_key=' + this.apiKEY + '&language=en-US');
   }
 }
