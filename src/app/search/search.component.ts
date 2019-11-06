@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TmdbService } from '../tmdb.service';
-import { ActivatedRoute } from '@angular/router';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-search',
@@ -11,7 +8,7 @@ import {Subject} from 'rxjs';
 })
 export class SearchComponent implements OnInit {
   movies = [];
-  constructor(private tmdb: TmdbService, private route: ActivatedRoute) { }
+  constructor(private tmdb: TmdbService) { }
 
   ngOnInit() {
   }
