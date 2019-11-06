@@ -13,8 +13,8 @@ import { Router} from '@angular/router';
 })
 export class SearchComponent implements OnInit {
   movies = [];
-  constructor(private tmdb: TmdbService, private route: ActivatedRoute, private router: Router) { }
 
+  constructor(private tmdb: TmdbService, private route: ActivatedRoute, private router: Router) { }
   ngOnInit() {
   }
   getMovieListByName(movieName): void {

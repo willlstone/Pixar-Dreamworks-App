@@ -1,7 +1,11 @@
 
-<div>
+<div *ngIf="movie">
 
   <h2>{{movie.original_title}}</h2>
+
+  <app-trailer></app-trailer>
+  <app-cast></app-cast>
+  <app-similar></app-similar>
 
 
 </div>

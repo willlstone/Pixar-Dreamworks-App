@@ -31,4 +31,10 @@ export class TmdbService {
   getImagesById(id) {
     return this.http.get(this.tmdbURL + '3/movie/' + id + '/images?api_key=' + this.apiKEY);
   }
+  getCreditsById(id) {
+    return this.http.get(this.tmdbURL + '3/movie/' + id + '/credits?api_key=' + this.apiKEY);
+  }
+  getSimilarById(id) {
+    return this.http.get(this.tmdbURL + '3/movie/' + id + '/similar?api_key=' + this.apiKEY);
+  }
 }
