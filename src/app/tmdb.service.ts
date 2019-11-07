@@ -37,4 +37,10 @@ export class TmdbService {
   getSimilarById(id) {
     return this.http.get(this.tmdbURL + '3/movie/' + id + '/similar?api_key=' + this.apiKEY);
   }
+  getBioInfo(id) {
+    return this.http.get(this.tmdbURL + '3/person/' + id + '?api_key=' + this.apiKEY);
+  }
+  getStaredIn(id) {
+    return this.http.get(this.tmdbURL + '3/person/' + id + '/movie_credits?api_key=' + this.apiKEY);
+  }
 }
