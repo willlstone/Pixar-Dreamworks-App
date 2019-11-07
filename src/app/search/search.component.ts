@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TmdbService } from '../tmdb.service';
 import {ActivatedRoute, RouterModule} from '@angular/router';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import {Subject} from 'rxjs';
-import { AppRoutingModule} from '../app-routing.module';
 import { Router} from '@angular/router';
 
 @Component({
@@ -21,11 +18,9 @@ export class SearchComponent implements OnInit {
     /* tslint:disable:no-string-literal */
     this.tmdb.getMovieListByName(movieName).subscribe(response => this.movies = response['results']);
   }
-  submitForm() {
+  submitForm(query) {
     console.log('submit');
-    // location.replace('/movie/808');
-    // this.router.navigate(['home']);
-    // location.replace('/home');
+    this.router.navigate(['/search/' + query]);
   }
 
 }
