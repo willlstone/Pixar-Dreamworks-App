@@ -1,11 +1,10 @@
-<div id="search-component">
-  <h4><label for="search-box">Search Movie</label></h4>
-  <input #searchBox id="search-box" (input)="getMovieListByName(searchBox.value)">
-  <ul class="search-result">
-    <li *ngFor="let movie of movies">
-      <a routerLink="/movie/{{movie.id}}">
-        {{movie.original_title}}
-      </a>
-    </li>
-  </ul>
-</div>
+<!-- Search form -->
+<form id="search-component" class="form-inline waves-light" mdbWavesEffect
+      (submit)="submitForm(searchBox.value)" (keypress.enter)="submitForm(searchBox.value)" >
+  <div class="md-form my-0">
+    <input class="form-control mr-sm-2" type="text" placeholder="Search"
+    #searchBox id="search-box" (input)="getMovieListByName(searchBox.value)" >
+  </div>
+</form>
+
+
