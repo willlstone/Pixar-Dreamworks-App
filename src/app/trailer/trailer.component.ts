@@ -18,7 +18,7 @@ export class TrailerComponent implements OnInit {
   }
   getVideoById(): void {
     /* tslint:disable:no-string-literal */
-    this.tmdb.getVideosById(this.movieId).subscribe(jsonData => {this.getTrailer(jsonData['results']);});
+    this.tmdb.getVideosById(this.movieId).subscribe(jsonData => {this.getTrailer(jsonData['results']); });
   }
   getTrailer(jsonData): void {
     for (const video of jsonData) {
