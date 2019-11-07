@@ -14,6 +14,9 @@ import { SearchComponent } from './search/search.component';
 import { CastComponent } from './cast/cast.component';
 import { TrailerComponent } from './trailer/trailer.component';
 import { SimilarComponent } from './similar/similar.component';
+import { BioComponent } from './bio/bio.component';
+import { BioInfoComponent } from './bio-info/bio-info.component';
+import { StaredInComponent } from './stared-in/stared-in.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { SimilarComponent } from './similar/similar.component';
     SearchComponent,
     CastComponent,
     TrailerComponent,
-    SimilarComponent
+    SimilarComponent,
+    BioComponent,
+    BioInfoComponent,
+    StaredInComponent
   ],
   imports: [
     BrowserModule,

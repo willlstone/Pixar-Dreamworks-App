@@ -1,0 +1,31 @@
+<!-- News jumbotron -->
+<div class="jumbotron text-center p-4" *ngIf="bio">
+
+  <!-- Grid row -->
+  <div class="row">
+
+    <!-- Grid column -->
+    <div class="col-md-3">
+
+      <!-- Featured image -->
+      <div class="view overlay waves-light">
+        <img src="{{'http://image.tmdb.org/t/p/original' + bio.profile_path}}" class="img-fluid" alt="Profile Picture of {{bio.name}}">
+      </div>
+
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-md-8 text-md-left ml-3 mt-3">
+      <h4 class="h4 mb-4">{{bio.name}}</h4>
+      <h6 class="h6 mb-6">{{bio.birthday}}</h6>
+      <h6 class="h6 mb-6">{{bio.place_of_birth}}</h6>
+      <p class="font-weight-normal">{{bio.biography}}</p>
+    </div>
+    <!-- Grid column -->
+
+  </div>
+  <!-- Grid row -->
+
+</div>
+<!-- News jumbotron -->
