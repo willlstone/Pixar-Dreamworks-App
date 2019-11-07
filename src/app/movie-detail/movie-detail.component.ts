@@ -5,6 +5,7 @@ import { TmdbService } from '../tmdb.service';
 import {Movie} from '../movie';
 import {Location} from '@angular/common';
 
+
 @Component({
   selector: 'app-movie-detail',
   templateUrl: './movie-detail.component.html',
