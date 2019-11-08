@@ -9,6 +9,7 @@ import { MovieGridComponent } from './movie-grid/movie-grid.component';
 import { GridBannerComponent } from './grid-banner/grid-banner.component';
 import { AppRoutingModule } from './app-routing.module';
 import { StudioComponent } from './studio/studio.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { StudioComponent } from './studio/studio.component';
     NavigationComponent,
     MovieGridComponent,
     GridBannerComponent,
-    StudioComponent
+    StudioComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
