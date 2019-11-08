@@ -41,6 +41,21 @@ export class TmdbService {
     return this.http.get(this.tmdbURL + '3/person/' + id + '?api_key=' + this.apiKEY);
   }
   getStaredIn(id) {
-    return this.http.get(this.tmdbURL + '3/person/' + id + '/movie_credits?api_key=' + this.apiKEY);
+    return this.http.get(this.tmdbURL + '3/person/' + id + '/combined_credits?api_key=' + this.apiKEY);
+  }
+  getTVShow(id) {
+    return this.http.get(this.tmdbURL + '3/tv/' + id + '/similar?api_key=' + this.apiKEY);
+  }
+  getSimilarTV(id) {
+    return this.http.get(this.tmdbURL + '3/tv/' + id + '/similar?api_key=' + this.apiKEY);
+  }
+  getTVById(id) {
+    return this.http.get(this.tmdbURL + '3/tv/' + id + '?api_key=' + this.apiKEY);
+  }
+  getTVCreditsById(id) {
+    return this.http.get(this.tmdbURL + '3/tv/' + id + '/credits?api_key=' + this.apiKEY);
+  }
+  getTVVideosById(id) {
+    return this.http.get(this.tmdbURL + '3/tv/' + id + '/videos?api_key=' + this.apiKEY + '&language=en-US');
   }
 }
