@@ -32,6 +32,14 @@ export class MovieGridComponent implements OnInit {
         this.getTVCompany();
         this.isMovie = false;
         break;
+      case 'movie':
+        this.getDetails();
+        this.isMovie = true;
+        break;
+      case 'tv':
+        this.getDetails();
+        this.isMovie = false;
+        break;
       default:
         console.log('URL did not specify search/studio');
 
@@ -49,6 +57,14 @@ export class MovieGridComponent implements OnInit {
   getStudioMovieList(): void {
     this.tmdbService.getListByUrl('https://api.themoviedb.org/3' + '/discover/movie?with_companies=' + this.companyId + '&page=1&include' +
     '_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&api_key=')
+      .subscribe(
+        (response) => {
+          this.moviesList = response['results'];
+        }
+      );
+  }
+  getDetails(): void {
+    this.tmdbService.getListByUrl('https://api.themoviedb.org/3/' + this.gridPath + '/' + this.companyId + '?api_key=')
       .subscribe(
         (response) => {
           this.moviesList = response['results'];
