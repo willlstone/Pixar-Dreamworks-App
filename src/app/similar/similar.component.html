@@ -6,9 +6,16 @@
     <div class="view rgba-white-slight waves-light" mdbWavesEffect>
       <!-- Card img -->
       <mdb-card-img src="{{'http://image.tmdb.org/t/p/original' + movie.poster_path}}" alt="{{movie.title + ' Movie Poster'}}"></mdb-card-img>
-      <a href="/movie/{{movie.id}}">
+      <div *ngIf="isMovie; else tv">
+      <a href="/details/movie/{{movie.id}}">
         <div class="mask"></div>
       </a>
+      </div>
+      <ng-template #tv>
+        <a href="/details/tv/{{movie.id}}">
+          <div class="mask"></div>
+        </a>
+      </ng-template>
     </div>
     <!--Card content-->
     <mdb-card-body>
@@ -21,7 +28,12 @@
       <mdb-card-text> {{movie.overview}}
       </mdb-card-text>
 
-      <a href="/movie/{{movie.id}}" mdbBtn color="primary" mdbWavesEffect>See Movie Details</a>
+      <div *ngIf="isMovie; else tvShow">
+      <a href="/details/movie/{{movie.id}}" mdbBtn color="primary" mdbWavesEffect>See Movie Details</a>
+      </div>
+      <ng-template #tvShow>
+        <a href="/details/tv/{{movie.id}}" mdbBtn color="primary" mdbWavesEffect>See Movie Details</a>
+      </ng-template>
     </mdb-card-body>
   </mdb-card>
     </div>

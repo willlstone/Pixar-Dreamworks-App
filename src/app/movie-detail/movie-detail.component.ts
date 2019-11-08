@@ -12,8 +12,9 @@ import {Location} from '@angular/common';
   styleUrls: ['./movie-detail.component.scss']
 })
 export class MovieDetailComponent implements OnInit {
-
+  private isMovie = true;
   movieID = this.route.snapshot.paramMap.get('id');
+  private grid = this.route.snapshot.paramMap.get('grid');
   movie;
   constructor(
     private route: ActivatedRoute,
@@ -22,12 +23,27 @@ export class MovieDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getMovie();
-    console.log(this.movie);
+    if (this.grid === 'tv') {
+      this.getTV();
+      this.isMovie = false;
+    } else {
+      this.getMovie();
+      this.isMovie = true;
+      console.log(this.movie);
+    }
   }
   getMovie(): void {
     /* tslint:disable:no-string-literal */
     this.tmdbService.getMovieById(this.movieID)
+      .subscribe(
+        (response) => {
+          this.movie = response;
+        }
+      );
+  }
+  getTV(): void {
+    /* tslint:disable:no-string-literal */
+    this.tmdbService.getTVById(this.movieID)
       .subscribe(
         (response) => {
           this.movie = response;

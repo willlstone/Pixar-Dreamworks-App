@@ -6,9 +6,20 @@
   <div class="row">
     <!-- Grid column -->
     <div class="col-md-7 text-md-left ml-3 mt-3">
-      <h4 class="h4 mb-4">{{movie.title}} as {{movie.character}}</h4>
+      <div *ngIf="movie.title; else useName">
+        <h4 class="h4 mb-4">{{movie.title}}</h4>
+      </div>
+      <ng-template #useName>
+        <h4 class="h4 mb-4">{{movie.name}}</h4>
+      </ng-template>
+      <div *ngIf="movie.character"><h5 class="h5 mb-5">As {{movie.character}} </h5></div>
       <p class="font-weight-normal">{{movie.overview}}</p>
-      <a mdbBtn color="success" href="/movie/{{movie.id}}" mdbWavesEffect>See Movie</a>
+      <div *ngIf="movie.media_type === 'tv'; else notTVButton">
+        <a mdbBtn color="success" href="/details/tv/{{movie.id}}" mdbWavesEffect>See TV Show</a>
+      </div>
+      <ng-template #notTVButton>
+        <a mdbBtn color="success" href="/details/movie/{{movie.id}}" mdbWavesEffect>See Movie</a>
+      </ng-template>
     </div>
     <!-- Grid column -->
 
@@ -18,9 +29,16 @@
       <!-- Featured image -->
       <div class="view overlay waves-light" mdbWavesEffect>
         <img src="{{'http://image.tmdb.org/t/p/original' + movie.backdrop_path}}" class="img-fluid" alt="Image of {{movie.title}} Movie">
-        <a href="/movie/{{movie.id}}">
-          <div class="mask rgba-white-slight"></div>
-        </a>
+        <div *ngIf="movie.media_type === 'tv'; else notTV">
+          <a href="/details/tv/{{movie.id}}">
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+        <ng-template #notTV>
+          <a href="/details/movie/{{movie.id}}">
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </ng-template>
       </div>
 
     </div>

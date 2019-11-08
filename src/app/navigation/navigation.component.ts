@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import { Location} from '@angular/common';
 
 @Component({
@@ -9,11 +9,16 @@ import { Location} from '@angular/common';
 })
 export class NavigationComponent implements OnInit {
   url = this.location.path();
+  private isMovie = true;
+  private gridPath = this.route.snapshot.paramMap.get('grid');
 
-  constructor(private router: Router, private location: Location) { }
-
+  constructor(private location: Location, private route: ActivatedRoute) { }
   ngOnInit() {
-    console.log(this.url);
+    if (this.gridPath === 'network') {
+      this.isMovie = false;
+    } else {
+      this.isMovie = true;
+    }
   }
 
 }

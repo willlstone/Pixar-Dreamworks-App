@@ -8,9 +8,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./movie-grid.component.scss']
 })
 export class MovieGridComponent implements OnInit {
+  private isMovie = true;
   moviesList = [];
   gridPath = this.route.snapshot.paramMap.get('grid');
-  studio = this.route.snapshot.paramMap.get('id');
+  companyId = this.route.snapshot.paramMap.get('id');
   constructor(
     private tmdbService: TmdbService,
     private route: ActivatedRoute,
@@ -20,18 +21,32 @@ export class MovieGridComponent implements OnInit {
     switch (this.gridPath) {
       case 'studio':
         this.getStudioMovieList();
+        this.isMovie = true;
         break;
       case 'search':
         this.getMovieListByQuery();
+        this.isMovie = true;
+        break;
+      case 'network':
+        this.getTVCompany();
+        this.isMovie = false;
         break;
       default:
         console.log('URL did not specify search/studio');
 
     }
   }
-  getStudioMovieList(): void {
+  getTVCompany(): void {
     /* tslint:disable:no-string-literal */
-    this.tmdbService.getListByUrl('https://api.themoviedb.org/3' + '/discover/movie?with_companies=' + this.studio + '&page=1&include' +
+    this.tmdbService.getListByUrl('https://api.themoviedb.org/3/discover/tv?page=1&with_networks=' + this.companyId + '&api_key=')
+      .subscribe(
+        (response) => {
+          this.moviesList = response['results'];
+        }
+      );
+  }
+  getStudioMovieList(): void {
+    this.tmdbService.getListByUrl('https://api.themoviedb.org/3' + '/discover/movie?with_companies=' + this.companyId + '&page=1&include' +
     '_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&api_key=')
       .subscribe(
         (response) => {
@@ -40,7 +55,7 @@ export class MovieGridComponent implements OnInit {
       );
   }
   getMovieListByQuery(): void {
-    this.tmdbService.getMovieListByName(this.studio)
+    this.tmdbService.getMovieListByName(this.companyId)
       .subscribe(
         (response) => {
           this.moviesList = response['results'];
