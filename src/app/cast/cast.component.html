@@ -2,10 +2,13 @@
   <div class="row">
     <div *ngFor="let person of cast" class="col-md-2" style="padding-bottom: 5vh;">
       <!-- Card -->
-      <mdb-card>
+      <mdb-card *ngIf="person.profile_path" class="h-100 view overlay zoom" >
+
         <div class="view rgba-white-slight waves-light" mdbWavesEffect>
           <!-- Card img -->
+
           <mdb-card-img src="{{'http://image.tmdb.org/t/p/original' + person.profile_path}}" alt="{{'Picture of ' + person.name}}"></mdb-card-img>
+
           <a href="/person/{{person.id}}">
             <div class="mask"></div>
           </a>
@@ -24,3 +27,4 @@
     </div>
   </div>
 </div>
+

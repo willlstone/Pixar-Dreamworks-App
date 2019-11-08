@@ -10,14 +10,14 @@
 
     <!-- Links -->
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link waves-light" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+      <li [class.active]="url == '' || url == '/home'" class="nav-item">
+        <a  class="nav-link waves-light" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" href="/studio/3" mdbWavesEffect>Pixar</a>
+      <li  class="nav-item" [class.active]="url == '/studio/3'">
+        <a  class="nav-link waves-light" href="/studio/3" mdbWavesEffect>Pixar</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light"  href="/studio/521" mdbWavesEffect>Dreamworks</a>
+      <li [class.active]="url == '/studio/521'" class="nav-item" >
+        <a  class="nav-link waves-light"  href="/studio/521" mdbWavesEffect>Dreamworks</a>
       </li>
 
       <!-- Dropdown -->
