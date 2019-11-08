@@ -9,6 +9,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class StaredInComponent implements OnInit {
   private cast = [];
+  private backdrops = [];
   private personId = this.route.snapshot.paramMap.get('id');
   constructor(private tmdb: TmdbService, private route: ActivatedRoute) { }
 

@@ -11,10 +11,15 @@ import { ActivatedRoute } from '@angular/router';
 export class TrailerComponent implements OnInit {
   private key;
   private movieId = this.route.snapshot.paramMap.get('id');
+  private grid = this.route.snapshot.paramMap.get('grid');
   constructor(private tmdb: TmdbService, private sanitizer: DomSanitizer, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getVideoById();
+    if (this.grid === 'tv') {
+      this.getTVVideoById();
+    } else {
+      this.getVideoById();
+    }
   }
   getVideoById(): void {
     /* tslint:disable:no-string-literal */
@@ -23,6 +28,19 @@ export class TrailerComponent implements OnInit {
   getTrailer(jsonData): void {
     for (const video of jsonData) {
       if (video.type === 'Trailer' && video.site === 'YouTube') {
+        this.key = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + video.key);
+        console.log(this.key);
+        break;
+      }
+    }
+  }
+  getTVVideoById(): void {
+    /* tslint:disable:no-string-literal */
+    this.tmdb.getTVVideosById(this.movieId).subscribe(jsonData => {this.getTVTrailer(jsonData['results']); });
+  }
+  getTVTrailer(jsonData): void {
+    for (const video of jsonData) {
+      if (video.site === 'YouTube') {
         this.key = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + video.key);
         console.log(this.key);
         break;
