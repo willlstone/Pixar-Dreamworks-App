@@ -7,9 +7,9 @@ import {MovieDetailComponent} from './movie-detail/movie-detail.component';
 import {BioComponent} from './bio/bio.component';
 
 const routes: Routes = [
-  {path: 'studio/:id', component: StudioComponent },
+  // {path: 'studio/:id', component: StudioComponent },
   {path: '', pathMatch: 'full', component: HomePageComponent},
-  {path: 'home', component: HomePageComponent},
+  {path: 'home', redirectTo: '', component: HomePageComponent},
   // {path: 'movie/:id', component: MovieDetailComponent },
   {path: 'person/:id', component: BioComponent },
   {path: 'details/:grid/:id', component: MovieDetailComponent },

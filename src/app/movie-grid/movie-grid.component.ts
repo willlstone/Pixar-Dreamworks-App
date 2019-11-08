@@ -22,7 +22,7 @@ export class MovieGridComponent implements OnInit {
       case 'studio':
         this.getStudioMovieList();
         this.isMovie = true;
-        console.log(this.isMovie)
+        console.log(this.isMovie);
         break;
       case 'search':
         this.getMovieListByQuery();
