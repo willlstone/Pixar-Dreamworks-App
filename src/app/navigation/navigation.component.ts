@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router} from '@angular/router';
+import { Location} from '@angular/common';
 
 @Component({
   selector: 'app-navigation',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
+  url = this.location.path();
 
-  constructor() { }
+  constructor(private router: Router, private location: Location) { }
 
   ngOnInit() {
+    console.log(this.url);
   }
 
 }

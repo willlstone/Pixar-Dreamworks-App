@@ -2,7 +2,7 @@
   <div class="row">
     <div *ngFor="let movie of moviesList" class="col-md-3" style="padding-bottom: 5vh;">
   <!-- Card -->
-  <mdb-card>
+  <mdb-card class="h-100">
     <div class="view rgba-white-slight waves-light" mdbWavesEffect>
       <!-- Card img -->
       <mdb-card-img src="{{'http://image.tmdb.org/t/p/original' + movie.poster_path}}" alt="{{movie.title + ' Movie Poster'}}"></mdb-card-img>
