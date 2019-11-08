@@ -22,4 +22,9 @@
   <!--/.Carousel Wrapper-->
 </div>
 
+<div *ngIf="isMovie; else tv">
 <h1 *ngIf="bannerURL" class="centered" style="text-align:center;white-space:pre-wrap; z-index: 100">Feature Films </h1>
+</div>
+<ng-template #tv>
+  <h1 *ngIf="bannerURL" class="centered" style="text-align:center;white-space:pre-wrap; z-index: 100">Feature TV Shows </h1>
+</ng-template>

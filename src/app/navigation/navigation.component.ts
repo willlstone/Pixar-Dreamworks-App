@@ -16,8 +16,11 @@ export class NavigationComponent implements OnInit {
   ngOnInit() {
     if (this.gridPath === 'network') {
       this.isMovie = false;
+      console.log(this.isMovie);
     } else {
       this.isMovie = true;
+      console.log(this.isMovie);
+      console.log(this.url);
     }
   }
 
