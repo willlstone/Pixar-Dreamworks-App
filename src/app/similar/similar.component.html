@@ -1,8 +1,10 @@
+
 <div class="card-group" style="height:1000px;background-color:#fff;font-size:36px; margin-top: 5%; margin-left: 5vh; margin-right: 5vh">
+  <h1 style="position: relative; font-weight: 400; left: 45%"> Related Movies </h1>
   <div class="row">
     <div *ngFor="let movie of moviesList" class="col-md-3" style="padding-bottom: 5vh;">
   <!-- Card -->
-  <mdb-card class="h-100">
+  <mdb-card class="h-100 focus-card view overlay zoom">
     <div class="view rgba-white-slight waves-light" mdbWavesEffect>
       <!-- Card img -->
       <mdb-card-img src="{{'http://image.tmdb.org/t/p/original' + movie.poster_path}}" alt="{{movie.title + ' Movie Poster'}}"></mdb-card-img>
@@ -29,7 +31,7 @@
       </mdb-card-text>
 
       <div *ngIf="isMovie; else tvShow">
-      <a href="/details/movie/{{movie.id}}" mdbBtn color="primary" mdbWavesEffect>See Movie Details</a>
+<!--      <a href="/details/movie/{{movie.id}}" mdbBtn color="primary" mdbWavesEffect>See Movie Details</a>-->
       </div>
       <ng-template #tvShow>
         <a href="/details/tv/{{movie.id}}" mdbBtn color="primary" mdbWavesEffect>See Movie Details</a>

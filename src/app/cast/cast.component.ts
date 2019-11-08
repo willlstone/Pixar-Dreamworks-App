@@ -22,10 +22,16 @@ export class CastComponent implements OnInit {
   }
   getCreditsById(): void {
     /* tslint:disable:no-string-literal */
-    this.tmdb.getCreditsById(this.movieId).subscribe(response => this.cast = response['cast']);
+    this.tmdb.getCreditsById(this.movieId).subscribe(response => {this.cleanCast(response['cast']); });
   }
   getTVCreditsById(): void {
     this.tmdb.getTVCreditsById(this.movieId).subscribe(response => this.cast = response['cast']);
   }
-
+  cleanCast(cast): void {
+    cast.forEach((person) => {
+      if (person['profile_path']) {
+        this.cast.push(person);
+      }
+    });
+  }
 }
