@@ -9,6 +9,7 @@ import { MovieGridComponent } from './movie-grid/movie-grid.component';
 import { GridBannerComponent } from './grid-banner/grid-banner.component';
 import { AppRoutingModule } from './app-routing.module';
 import { StudioComponent } from './studio/studio.component';
+import { HomePageComponent } from './home-page/home-page.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { SearchComponent } from './search/search.component';
 import { CastComponent } from './cast/cast.component';
@@ -24,6 +25,8 @@ import { StaredInComponent } from './stared-in/stared-in.component';
     NavigationComponent,
     MovieGridComponent,
     GridBannerComponent,
+    StudioComponent,
+    HomePageComponent,
     StudioComponent,
     MovieDetailComponent,
     StudioComponent,
