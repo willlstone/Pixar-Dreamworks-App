@@ -1,0 +1,41 @@
+<div class="card-group" style="height:1000px;background-color:#fff;font-size:36px; margin-top: 5%; margin-left: 5vh; margin-right: 5vh">
+  <div class="row">
+    <div *ngFor="let movie of moviesList" class="col-md-3" style="padding-bottom: 5vh;">
+  <!-- Card -->
+  <mdb-card class="h-100">
+    <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+      <!-- Card img -->
+      <mdb-card-img src="{{'http://image.tmdb.org/t/p/original' + movie.poster_path}}" alt="{{movie.title + ' Movie Poster'}}"></mdb-card-img>
+      <div *ngIf="isMovie; else tv">
+      <a href="/details/movie/{{movie.id}}">
+        <div class="mask"></div>
+      </a>
+      </div>
+      <ng-template #tv>
+        <a href="/details/tv/{{movie.id}}">
+          <div class="mask"></div>
+        </a>
+      </ng-template>
+    </div>
+    <!--Card content-->
+    <mdb-card-body>
+      <!--Title-->
+      <mdb-card-title>
+        <h4>{{movie.title}}</h4>
+      </mdb-card-title>
+
+      <!--Text-->
+      <mdb-card-text> {{movie.overview}}
+      </mdb-card-text>
+
+      <div *ngIf="isMovie; else tvShow">
+      <a href="/details/movie/{{movie.id}}" mdbBtn color="primary" mdbWavesEffect>See Movie Details</a>
+      </div>
+      <ng-template #tvShow>
+        <a href="/details/tv/{{movie.id}}" mdbBtn color="primary" mdbWavesEffect>See Movie Details</a>
+      </ng-template>
+    </mdb-card-body>
+  </mdb-card>
+    </div>
+  </div>
+</div>

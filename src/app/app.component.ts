@@ -8,6 +8,7 @@ declare var jarallax: any;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit {
+
   title = 'Pixar-Dreamworks-App';
   ngAfterViewInit() {
     jarallax(document.querySelectorAll('.jarallax'), {

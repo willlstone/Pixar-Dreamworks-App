@@ -17,7 +17,45 @@ export class TmdbService {
       '_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&api_key=' + this.apiKEY);
   }
   getListByUrl(url) {
-    console.log('api request: ' + this.apiKEY);
     return this.http.get(url + this.apiKEY);
+  }
+  getMovieListByName(movieName) {
+    return this.http.get(this.tmdbURL + '3/search/movie?api_key=' + this.apiKEY + '&query=' + movieName);
+  }
+  getMovieById(id) {
+    return this.http.get(this.tmdbURL + '3/movie/' + id + '?api_key=' + this.apiKEY + '&language=en-US');
+  }
+  getVideosById(id) {
+    return this.http.get(this.tmdbURL + '3/movie/' + id + '/videos?api_key=' + this.apiKEY + '&language=en-US');
+  }
+  getImagesById(id) {
+    return this.http.get(this.tmdbURL + '3/movie/' + id + '/images?api_key=' + this.apiKEY);
+  }
+  getCreditsById(id) {
+    return this.http.get(this.tmdbURL + '3/movie/' + id + '/credits?api_key=' + this.apiKEY);
+  }
+  getSimilarById(id) {
+    return this.http.get(this.tmdbURL + '3/movie/' + id + '/similar?api_key=' + this.apiKEY);
+  }
+  getBioInfo(id) {
+    return this.http.get(this.tmdbURL + '3/person/' + id + '?api_key=' + this.apiKEY);
+  }
+  getStaredIn(id) {
+    return this.http.get(this.tmdbURL + '3/person/' + id + '/combined_credits?api_key=' + this.apiKEY);
+  }
+  getTVShow(id) {
+    return this.http.get(this.tmdbURL + '3/tv/' + id + '/similar?api_key=' + this.apiKEY);
+  }
+  getSimilarTV(id) {
+    return this.http.get(this.tmdbURL + '3/tv/' + id + '/similar?api_key=' + this.apiKEY);
+  }
+  getTVById(id) {
+    return this.http.get(this.tmdbURL + '3/tv/' + id + '?api_key=' + this.apiKEY);
+  }
+  getTVCreditsById(id) {
+    return this.http.get(this.tmdbURL + '3/tv/' + id + '/credits?api_key=' + this.apiKEY);
+  }
+  getTVVideosById(id) {
+    return this.http.get(this.tmdbURL + '3/tv/' + id + '/videos?api_key=' + this.apiKEY + '&language=en-US');
   }
 }

@@ -4,19 +4,20 @@
   <!-- Navbar brand -->
   <mdb-navbar-brand><a class="navbar-brand" href="#">PIXAR vs. DREAMWORKS</a></mdb-navbar-brand>
 
+  <!--<div *ngIf="isMovie; else notShow">-->
   <!-- Collapsible content -->
   <links>
 
     <!-- Links -->
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link waves-light" href="/home" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+      <li [class.active]="url == '' || url == '/home'" class="nav-item">
+        <a  class="nav-link waves-light" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light" href="/studio/3" mdbWavesEffect>Pixar</a>
+      <li  class="nav-item" [class.active]="url == '/studio/3'">
+        <a  class="nav-link waves-light" href="/studio/3" mdbWavesEffect>Pixar</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link waves-light"  href="/studio/521" mdbWavesEffect>Dreamworks</a>
+      <li [class.active]="url == '/studio/521'" class="nav-item" >
+        <a  class="nav-link waves-light"  href="/studio/521" mdbWavesEffect>Dreamworks</a>
       </li>
 
       <!-- Dropdown -->
@@ -31,44 +32,54 @@
           <a class="dropdown-item waves-light" mdbWavesEffect href="#">Separated link</a>
         </div>
       </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light"  href="/network/19" mdbWavesEffect>TV</a>
+      </li>
 
     </ul>
-    <!-- Links -->
 
-    <ul class="navbar-nav ml-auto nav-flex-icons">
-      <li class="nav-item">
-        <a class="nav-link">
-          <mdb-icon fab icon="twitter"></mdb-icon>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link">
-          <mdb-icon fab icon="google-plus"></mdb-icon>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link">
-          <div class="btn-group" mdbDropdown>
-            <mdb-icon fas icon="user" mdbDropdownToggle></mdb-icon>
-            <div class="dropdown-menu dropdown-menu-right dropdown-primary">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <div class="divider dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a>
-            </div>
+  <app-search></app-search>
+
+</links>
+  <!--</div>-->
+
+  <!--<ng-template #notShow>
+    <links>
+
+      !-- Links --
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link waves-light" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" href="/network/19" mdbWavesEffect>Fox</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light"  href="/network/16" mdbWavesEffect>CBS</a>
+        </li>
+
+        !-- Dropdown --
+        <li class="nav-item dropdown" dropdown>
+          <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+            More<span class="caret"></span></a>
+          <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#">Action</a>
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#">Another action</a>
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#">Something else here</a>
+            <div class="divider dropdown-divider"></div>
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#">Separated link</a>
           </div>
-        </a>
-      </li>
-    </ul>
-  </links>
-  <!-- Collapsible content -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light"  href="/studio/3" mdbWavesEffect>Movie</a>
+        </li>
+
+      </ul>
+
+      <app-search></app-search>
+
+    </links>
+  </ng-template>-->
 
 </mdb-navbar>
 <!--/.Navbar-->
-<!--/.Navbar-->
-<!-- /Start your project here-->
-<!-- ///////////////////////////////////////// -->
-<!-- //////////////  END NAVBAR  ///////////// -->
-<!-- /////////////////////////////////////////-->
-<!-- ///////////////////////////////////////// -->

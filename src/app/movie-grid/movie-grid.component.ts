@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TmdbService} from '../tmdb.service';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-movie-grid',
@@ -9,21 +8,38 @@ import { Location } from '@angular/common';
   styleUrls: ['./movie-grid.component.scss']
 })
 export class MovieGridComponent implements OnInit {
+  private isMovie = true;
   moviesList = [];
-  studio = this.route.snapshot.paramMap.get('id');
+  gridPath = this.route.snapshot.paramMap.get('grid');
+  companyId = this.route.snapshot.paramMap.get('id');
   constructor(
     private tmdbService: TmdbService,
     private route: ActivatedRoute,
-    private location: Location
   ) { }
 
   ngOnInit() {
-    // this.tmdbService.getMovies();
-    this.getStudioMovieList();
+    switch (this.gridPath) {
+      case 'studio':
+        this.getStudioMovieList();
+        this.isMovie = true;
+        console.log(this.isMovie)
+        break;
+      case 'search':
+        this.getMovieListByQuery();
+        this.isMovie = true;
+        break;
+      case 'network':
+        this.getTVCompany();
+        this.isMovie = false;
+        break;
+      default:
+        console.log('URL did not specify search/studio');
+
+    }
   }
-  getList(): void {
+  getTVCompany(): void {
     /* tslint:disable:no-string-literal */
-    this.tmdbService.getList()
+    this.tmdbService.getListByUrl('https://api.themoviedb.org/3/discover/tv?page=1&with_networks=' + this.companyId + '&api_key=')
       .subscribe(
         (response) => {
           this.moviesList = response['results'];
@@ -31,8 +47,7 @@ export class MovieGridComponent implements OnInit {
       );
   }
   getStudioMovieList(): void {
-    /* tslint:disable:no-string-literal */
-    this.tmdbService.getListByUrl('https://api.themoviedb.org/3' + '/discover/movie?with_companies=' + this.studio + '&page=1&include' +
+    this.tmdbService.getListByUrl('https://api.themoviedb.org/3' + '/discover/movie?with_companies=' + this.companyId + '&page=1&include' +
     '_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&api_key=')
       .subscribe(
         (response) => {
@@ -40,8 +55,13 @@ export class MovieGridComponent implements OnInit {
         }
       );
   }
-  printMovies(): void {
-    console.log(this.studio);
+  getMovieListByQuery(): void {
+    this.tmdbService.getMovieListByName(this.companyId)
+      .subscribe(
+        (response) => {
+          this.moviesList = response['results'];
+        }
+      );
   }
 
 }

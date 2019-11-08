@@ -8,9 +8,20 @@
         <!--Card image-->
         <div class="view view-cascade overlay waves-light" mdbWavesEffect>
           <mdb-card-img src="{{'http://image.tmdb.org/t/p/original' + movie.poster_path}}"></mdb-card-img>
-          <a>
-            <div class="mask rgba-white-slight"></div>
-          </a>
+
+
+          <div *ngIf="isMovie; else notShow">
+            <a href="/details/movie/{{movie.id}}">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+
+          <ng-template #notShow>
+            <a href="/details/tv/{{movie.id}}">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </ng-template>
+
         </div>
         <!--/Card image-->
 

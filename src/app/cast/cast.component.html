@@ -1,0 +1,30 @@
+<div class="card-group" style="height:700px;background-color:#fff;font-size:36px; margin-top: 5%; margin-left: 5vh; margin-right: 5vh; overflow: scroll">
+  <div class="row">
+    <div *ngFor="let person of cast" class="col-md-2" style="padding-bottom: 5vh;">
+      <!-- Card -->
+      <mdb-card *ngIf="person.profile_path" class="h-100 view overlay zoom" >
+
+        <div class="view rgba-white-slight waves-light" mdbWavesEffect>
+          <!-- Card img -->
+
+          <mdb-card-img src="{{'http://image.tmdb.org/t/p/original' + person.profile_path}}" alt="{{'Picture of ' + person.name}}"></mdb-card-img>
+
+          <a href="/person/{{person.id}}">
+            <div class="mask"></div>
+          </a>
+        </div>
+        <!--Card content-->
+        <mdb-card-body>
+          <!--Title-->
+          <mdb-card-title>
+            <h4>{{person.name}}</h4>
+          </mdb-card-title>
+          <mdb-card-text>As {{person.character}}</mdb-card-text>
+
+          <a href="/person/{{person.id}}" mdbBtn color="primary" mdbWavesEffect>Learn More</a>
+        </mdb-card-body>
+      </mdb-card>
+    </div>
+  </div>
+</div>
+

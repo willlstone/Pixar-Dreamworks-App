@@ -10,6 +10,14 @@ import { GridBannerComponent } from './grid-banner/grid-banner.component';
 import { AppRoutingModule } from './app-routing.module';
 import { StudioComponent } from './studio/studio.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { SearchComponent } from './search/search.component';
+import { CastComponent } from './cast/cast.component';
+import { TrailerComponent } from './trailer/trailer.component';
+import { SimilarComponent } from './similar/similar.component';
+import { BioComponent } from './bio/bio.component';
+import { BioInfoComponent } from './bio-info/bio-info.component';
+import { StaredInComponent } from './stared-in/stared-in.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +26,17 @@ import { HomePageComponent } from './home-page/home-page.component';
     MovieGridComponent,
     GridBannerComponent,
     StudioComponent,
-    HomePageComponent
+    HomePageComponent,
+    StudioComponent,
+    MovieDetailComponent,
+    StudioComponent,
+    SearchComponent,
+    CastComponent,
+    TrailerComponent,
+    SimilarComponent,
+    BioComponent,
+    BioInfoComponent,
+    StaredInComponent
   ],
   imports: [
     BrowserModule,
