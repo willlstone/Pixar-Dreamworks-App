@@ -136,8 +136,13 @@
               "devServerTarget": "Pixar-Dreamworks-App:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "Pixar-Dreamworks-App"
 }
